@@ -1,6 +1,6 @@
 CREATE TABLE user (
 id int AUTO_INCREMENT PRIMARY KEY,
-userName VARCHAR(20),
+username VARCHAR(20),
 password VARCHAR(20)
 );
 
@@ -9,15 +9,15 @@ id int AUTO_INCREMENT PRIMARY KEY,
 user int,
 description VARCHAR(20),
 amount double,
-dueDate DATE
+due_date DATE
 );
 
 CREATE TABLE debts (
 id int AUTO_INCREMENT PRIMARY KEY,
 user int,
 description VARCHAR(20),
-payAmount double,
-dueDate date,
+pay_amount double,
+due_date date,
 rate double,
-totalLeft double
+total_left double
 );

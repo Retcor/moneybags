@@ -1,9 +1,6 @@
 package com.moneybags.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -17,6 +14,7 @@ public class Expenses {
     private long user;
     private String description;
     private double amount;
+    @Column(name="due_date")
     private Date dueDate;
 
     public long getId() {

@@ -1,9 +1,6 @@
 package com.moneybags.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -16,9 +13,12 @@ public class Debts {
     private long id;
     private long user;
     private String description;
+    @Column(name="pay_amount")
     private double payAmount;
+    @Column(name="due_date")
     private Date dueDate;
     private double rate;
+    @Column(name="total_left")
     private double totalLeft;
 
     public long getId() {

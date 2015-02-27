@@ -20,4 +20,9 @@ public class LoginServiceImpl implements LoginService {
     public void save(User user) {
         loginRepository.save(user);
     }
+
+    @Override
+    public User getUser(User user) {
+        return loginRepository.findOne(user.getId());
+    }
 }
