@@ -4,12 +4,20 @@
 (function(){
     var app = angular.module("moneybags");
     var loginController = function($scope, $http, login) {
-        $scope.createUser = function(username, password) {
+        var success = function(data) {
+            $scope.Success = "Saved Successfully!";
+        };
+
+        var error = function(data) {
+            $scope.Success = "Save Failed!";
+        };
+
+        $scope.createUser = function(userName, password) {
             var userObj = {
-                username: username,
+                userName: userName,
                 password: password
             };
-            login.createUser(userObj);
+            login.createUser(userObj).then(success,error);
         };
     };
     app.controller('LoginController', loginController);

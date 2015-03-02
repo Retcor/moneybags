@@ -1,12 +1,12 @@
 CREATE TABLE user (
 id int AUTO_INCREMENT PRIMARY KEY,
-username VARCHAR(20),
+user_name VARCHAR(20),
 password VARCHAR(20)
 );
 
 CREATE TABLE expenses (
 id int AUTO_INCREMENT PRIMARY KEY,
-user int,
+user_id int,
 description VARCHAR(20),
 amount double,
 due_date DATE
@@ -14,7 +14,7 @@ due_date DATE
 
 CREATE TABLE debts (
 id int AUTO_INCREMENT PRIMARY KEY,
-user int,
+user_id int,
 description VARCHAR(20),
 pay_amount double,
 due_date date,

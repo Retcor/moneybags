@@ -4,9 +4,9 @@
 (function(){
     var login = function($http) {
         var createUser = function(userObj) {
-            $http.post("../create", userObj)
-                .then(function() {
-                    console.log("Saved User Successfully!");
+            return $http.post("../create", userObj)
+                .then(function(response) {
+                    return response.data;
                 });
         };
         var getUser = function() {

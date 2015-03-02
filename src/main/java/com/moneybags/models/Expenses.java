@@ -11,7 +11,8 @@ public class Expenses {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
-    private long user;
+    @Column(name = "user_id")
+    private long userId;
     private String description;
     private double amount;
     @Column(name="due_date")
@@ -25,12 +26,12 @@ public class Expenses {
         this.id = id;
     }
 
-    public long getUser() {
-        return user;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser(long user) {
-        this.user = user;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getDescription() {

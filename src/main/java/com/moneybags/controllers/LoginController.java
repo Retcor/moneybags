@@ -27,8 +27,6 @@ public class LoginController {
 
     @RequestMapping(value="/create", method = RequestMethod.POST)
     public void createUser(@RequestBody final User user) {
-        System.out.println("It's working!");
-
         loginService.save(user);
     }
 }
