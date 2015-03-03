@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * Created by dan on 2/18/15.
@@ -22,7 +23,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public User getUser(User user) {
-        return loginRepository.findOne(user.getId());
+    public List<User> login(User user) {
+        return loginRepository.findByUserNameAndPassword(user.getUserName(), user.getPassword());
     }
 }

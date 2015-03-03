@@ -21,8 +21,8 @@ public class LoginController {
     LoginService loginService;
 
     @RequestMapping("/login")
-    public void login() {
-        System.out.println("It's working!");
+    public void login(@RequestBody final User user) {
+        loginService.login(user);
     }
 
     @RequestMapping(value="/create", method = RequestMethod.POST)

@@ -19,6 +19,14 @@
             };
             login.createUser(userObj).then(success,error);
         };
+
+        $scope.login = function(userName, password) {
+            var userObj = {
+                userName: userName,
+                password: password
+            };
+            login.login(userObj).then(success,error);
+        }
     };
     app.controller('LoginController', loginController);
 }());

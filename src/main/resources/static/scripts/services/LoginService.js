@@ -9,15 +9,15 @@
                     return response.data;
                 });
         };
-        var getUser = function() {
-            return $http.get("../login")
+        var login = function(userObj) {
+            return $http.get("../login", userObj)
                 .then(function(response) {
                     return response.data;
                 });
         };
         return {
             createUser: createUser,
-            getUser: getUser
+            login: login
         };
     };
     var module = angular.module("moneybags");
