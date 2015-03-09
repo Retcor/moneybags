@@ -1,5 +1,7 @@
 package com.moneybags.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -7,15 +9,17 @@ import java.util.Date;
  * Created by dan on 2/18/15.
  */
 @Entity
-public class Debts {
+public class Debt {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
-    private long user;
+    @Column(name = "user_id")
+    private long userId;
     private String description;
     @Column(name="pay_amount")
     private double payAmount;
     @Column(name="due_date")
+    @JsonFormat(pattern = "MM-dd-yyyy")
     private Date dueDate;
     private double rate;
     @Column(name="total_left")
@@ -29,12 +33,12 @@ public class Debts {
         this.id = id;
     }
 
-    public long getUser() {
-        return user;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser(long user) {
-        this.user = user;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getDescription() {

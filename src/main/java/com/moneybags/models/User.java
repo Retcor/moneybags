@@ -1,9 +1,7 @@
 package com.moneybags.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by dan on 2/18/15.
@@ -12,7 +10,6 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @JsonIgnore
     private long id;
     @Column(name = "user_name")
     private String userName;

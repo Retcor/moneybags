@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by dan on 2/18/15.
  */
 @Entity
-public class Expenses {
+public class Expense {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;

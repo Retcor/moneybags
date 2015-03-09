@@ -23,7 +23,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public List<User> login(User user) {
+    public User login(User user) {
         return loginRepository.findByUserNameAndPassword(user.getUserName(), user.getPassword());
     }
 }

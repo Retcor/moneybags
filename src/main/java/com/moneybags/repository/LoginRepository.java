@@ -12,5 +12,5 @@ import java.util.List;
  */
 @Repository
 public interface LoginRepository extends CrudRepository<User, Long> {
-    List<User> findByUserNameAndPassword(String userName, String password);
+    User findByUserNameAndPassword(String userName, String password);
 }

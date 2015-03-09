@@ -10,7 +10,7 @@
                 });
         };
         var login = function(userObj) {
-            return $http.get("../login", userObj)
+            return $http.post("../login", userObj)
                 .then(function(response) {
                     return response.data;
                 });

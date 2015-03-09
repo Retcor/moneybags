@@ -11,5 +11,5 @@ import java.util.List;
 @Service
 public interface LoginService {
     public void save(User user);
-    public List<User> login(User user);
+    public User login(User user);
 }

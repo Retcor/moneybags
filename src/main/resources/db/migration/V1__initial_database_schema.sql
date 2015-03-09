@@ -4,7 +4,7 @@ user_name VARCHAR(20),
 password VARCHAR(20)
 );
 
-CREATE TABLE expenses (
+CREATE TABLE expense (
 id int AUTO_INCREMENT PRIMARY KEY,
 user_id int,
 description VARCHAR(20),
@@ -12,7 +12,7 @@ amount double,
 due_date DATE
 );
 
-CREATE TABLE debts (
+CREATE TABLE debt (
 id int AUTO_INCREMENT PRIMARY KEY,
 user_id int,
 description VARCHAR(20),
