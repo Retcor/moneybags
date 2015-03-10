@@ -5,7 +5,14 @@
     var app = angular.module("moneybags");
     var detailsController = function($scope, $rootScope, details) {
         $scope.user = $rootScope.user;
-        $scope.userDebts = details.getDebts($rootScope.user.id);
+
+        var getDebtsSuccess = function(data) {
+            $scope.userDebts = data;
+        };
+        var getDebtsError = function(data) {
+            $scope.Message = "Getting debts failed!";
+        };
+        details.getDebts($rootScope.user.id).then(getDebtsSuccess,getDebtsError);
         $scope.userExpenses = details.getExpenses($rootScope.user.id);
 
         var saveSuccess = function(data) {
