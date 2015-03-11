@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div class="content">
 This is the details
 {{user.id}}
 {{user.userName}}
@@ -17,14 +11,25 @@ Rate:<input ng-model="rate"/><br>
 Total Left:<input ng-model="totalLeft"/><br>
 <button type="submit" ng-click="saveDebt(description,payAmount,dueDate,rate,totalLeft)">Save</button>
 
-<table>
-    <tr ng-repeat="userDebt in userDebts">
-        <td>{{userDebt.description}}</td>
-        <td>{{userDebt.payAmount}}</td>
-        <td>{{userDebt.dueDate}}</td>
-        <td>{{userDebt.rate}}</td>
-        <td>{{userDebt.totalLeft}}</td>
-    </tr>
+
+<table class="table table-striped table-condensed">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Pay Amount</th>
+            <th>Due Date</th>
+            <th>Rate</th>
+            <th>Total Left</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="userDebt in userDebts">
+            <td>{{userDebt.description}}</td>
+            <td>{{userDebt.payAmount}}</td>
+            <td>{{userDebt.dueDate}}</td>
+            <td>{{userDebt.rate}}</td>
+            <td>{{userDebt.totalLeft}}</td>
+        </tr>
+    </tbody>
 </table>
-</body>
-</html>
+</div>
