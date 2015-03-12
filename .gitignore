@@ -9,5 +9,3 @@
 *.iml
 # Generated Files #
 target/*
-# Bower Components #
-src/main/resources/static/bower_components/*
