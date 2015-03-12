@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.1.10.RELEASE</version>
+        <version>1.2.0.RELEASE</version>
     </parent>
     <dependencies>
         <dependency>
@@ -78,6 +78,11 @@
                     <user>root</user>
                     <password>Geekm@n21</password>
                 </configuration>
+                <!--<configuration>-->
+                    <!--<url>jdbc:postgres://jefxzdedfjdzyg:ijRKg1g_7H2YvG8L2MKel8Or5Z@ec2-23-21-170-57.compute-1.amazonaws.com:5432/d7o1kp1un2ohlk</url>-->
+                    <!--<user>jefxzdedfjdzyg</user>-->
+                    <!--<password>ijRKg1g_7H2YvG8L2MKel8Or5Z</password>-->
+                <!--</configuration>-->
             </plugin>
         </plugins>
     </build>
