@@ -5,11 +5,11 @@
     var app = angular.module("moneybags");
     var loginController = function($scope, $http, login, $location, $rootScope) {
         var createSuccess = function(data) {
-            $scope.Message = "Saved Successfully!";
+            $scope.SavedSuccessMessage = "Saved Successfully!";
         };
 
         var createError = function(data) {
-            $scope.Message = "Save Failed!";
+            $scope.SaveErrorMessage = "Save Failed!";
         };
 
         var loginSuccess = function(data) {
@@ -17,12 +17,12 @@
                 $rootScope.user = data;
                 $location.path("/details");
             } else {
-                $scope.Message = "No User found.";
+                $scope.NoUserMessage = "No User found.";
             }
         };
 
         var loginError = function(data) {
-            $scope.Message = "Login Failed!";
+            $scope.LoginError = "Login Failed! Check login information and try again.";
         };
 
         $scope.createUser = function(userName, password) {
@@ -39,7 +39,12 @@
                 password: password
             };
             login.login(userObj).then(loginSuccess,loginError);
-        }
+        };
+        window.setTimeout(function() {
+            $(".flash").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove();
+            });
+        }, 5000);
     };
     app.controller('LoginController', loginController);
 }());

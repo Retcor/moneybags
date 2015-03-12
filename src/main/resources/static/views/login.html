@@ -1,25 +1,18 @@
-<div class="content">
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label for="name" class="col-sm-2 control-label">Username:</label>
-            <div class="col-sm-10">
-                <input id="name" class="form-control" type="search" ng-model="name">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="password" class="col-sm-2 control-label">Password:</label>
-            <div class="col-sm-10">
-                <input id="password" class="form-control" type="search" ng-model="password">
-            </div>
-        </div>
+<div class="container">
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Sign in or Create</h2>
+        <label for="name" class="sr-only">Username:</label>
+        <input id="name" class="form-control" type="text" ng-model="name" placeholder="Username" required autofocus>
+        <label for="password" class="sr-only">Password:</label>
+        <input id="password" class="form-control" type="password" ng-model="password" placeholder="Password" required>
+        <br>
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login" ng-click="login(name, password)">
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create" ng-click="createUser(name, password)">
 
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <input type="submit" class="btn btn-default" value="Login" ng-click="login(name, password)">
-                <input type="submit" class="btn btn-default" value="Create" ng-click="createUser(name, password)">
-                {{Message}}
-            </div>
-        </div>
+        <div class="alert alert-success flash" ng-if="SavedSuccessMessage">{{SavedSuccessMessage}}</div>
+        <div class="alert alert-danger flash" ng-if="SaveErrorMessage">{{SaveErrorMessage}}</div>
+        <div class="alert alert-info flash" ng-if="NoUserMessage">{{NoUserMessage}}</div>
+        <div class="alert alert-danger flash" ng-if="LoginError">{{LoginError}}</div>
 
     </form>
 </div>
