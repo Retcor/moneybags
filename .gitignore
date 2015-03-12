@@ -11,5 +11,3 @@
 target/*
 # Bower Components #
 src/main/resources/static/bower_components/*
-# Application Properties #
-src/main/resources/application.properties
