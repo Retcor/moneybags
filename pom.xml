@@ -28,11 +28,21 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>1.2.1.RELEASE</version>
         </dependency>
+
+        <!-- MySql Database driver -->
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<version>5.1.9</version>-->
+        <!--</dependency>-->
+        <!-- Postgres Database driver for Heroku -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.9</version>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
         </dependency>
+
+
         <dependency>
             <groupId>com.googlecode.flyway</groupId>
             <artifactId>flyway-core</artifactId>
