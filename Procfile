@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/moneybags-1.0-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -Ddatabase.url=$DATABASE_URL $JAVA_OPTS -jar target/moneybags-1.0-SNAPSHOT.jar
