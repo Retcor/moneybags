@@ -3,8 +3,9 @@
  */
 (function(){
     var app = angular.module("moneybags");
-    var detailsController = function($scope, $rootScope, details) {
-        $scope.user = $rootScope.user;
+    var detailsController = function($scope, details) {
+        $scope.userId = window.sessionStorage.userId;
+        $scope.userName = window.sessionStorage.userName;
 
         var getDebtsSuccess = function(data) {
             $scope.userDebts = data;
@@ -12,8 +13,8 @@
         var getDebtsError = function(data) {
             $scope.Message = "Getting debts failed!";
         };
-        details.getDebts($rootScope.user.id).then(getDebtsSuccess,getDebtsError);
-        $scope.userExpenses = details.getExpenses($rootScope.user.id);
+        details.getDebts(window.sessionStorage.userId).then(getDebtsSuccess,getDebtsError);
+        $scope.userExpenses = details.getExpenses(window.sessionStorage.userId);
 
         var saveSuccess = function(data) {
             $scope.Message = "Save Success!";
@@ -21,7 +22,7 @@
 
         $scope.saveDebt = function (description, payAmount, dueDate, rate, totalLeft) {
             var debtObj = {
-                userId: $rootScope.user.id,
+                userId: window.sessionStorage.userId,
                 description: description,
                 payAmount: payAmount,
                 dueDate: dueDate,

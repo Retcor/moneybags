@@ -8,11 +8,5 @@
         <br>
         <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login" ng-click="login(name, password)">
         <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create" ng-click="createUser(name, password)">
-
-        <div class="alert alert-success flash" ng-if="SavedSuccessMessage">{{SavedSuccessMessage}}</div>
-        <div class="alert alert-danger flash" ng-if="SaveErrorMessage">{{SaveErrorMessage}}</div>
-        <div class="alert alert-info flash" ng-if="NoUserMessage">{{NoUserMessage}}</div>
-        <div class="alert alert-danger flash" ng-if="LoginError">{{LoginError}}</div>
-
     </form>
 </div>
