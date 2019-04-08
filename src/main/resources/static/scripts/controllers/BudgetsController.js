@@ -3,7 +3,7 @@
  */
 (function(){
     var app = angular.module("moneybags");
-    var detailsController = function($scope, details) {
+    var budgetsController = function($scope, details) {
         $scope.userIdSeq = window.sessionStorage.userIdSeq;
         $scope.userName = window.sessionStorage.userName;
 
@@ -35,5 +35,5 @@
 
         }
     };
-    app.controller('DetailsController', detailsController);
+    app.controller('BudgetsController', budgetsController);
 }());
