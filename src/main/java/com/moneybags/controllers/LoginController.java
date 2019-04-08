@@ -1,9 +1,9 @@
 package com.moneybags.controllers;
 
-import com.moneybags.models.User;
+import com.moneybags.domain.User;
+import com.moneybags.jpa.entity.Users;
 import com.moneybags.services.LoginService;
 
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

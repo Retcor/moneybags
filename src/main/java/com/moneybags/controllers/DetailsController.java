@@ -1,7 +1,7 @@
 package com.moneybags.controllers;
 
-import com.moneybags.models.Debt;
-import com.moneybags.models.Expense;
+import com.moneybags.domain.Debt;
+import com.moneybags.domain.Expense;
 import com.moneybags.services.DetailsService;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * User: daniel.baker
+ * Users: daniel.baker
  * Date: 3/8/2015
  * Time: 9:48 PM
  */
@@ -32,13 +32,13 @@ public class DetailsController {
 
     @RequestMapping(value = "/getDebts", method = RequestMethod.POST)
     @ResponseBody
-    public List<Debt> getDebts(@RequestBody final Long userId) {
-        return detailsService.getDebts(userId);
+    public List<Debt> getDebts(@RequestBody final Long budgIdSeq) {
+        return detailsService.getDebts(budgIdSeq);
     }
 
     @RequestMapping(value = "/getExpenses", method = RequestMethod.POST)
     @ResponseBody
-    public List<Expense> getExpenses(@RequestBody final Long userId) {
-        return detailsService.getExpenses(userId);
+    public List<Expense> getExpenses(@RequestBody final Long budgIdSeq) {
+        return detailsService.getExpenses(budgIdSeq);
     }
 }

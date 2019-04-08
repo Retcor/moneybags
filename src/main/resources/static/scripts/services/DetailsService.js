@@ -3,14 +3,14 @@
  */
 (function(){
     var details = function($http) {
-        var getDebts = function(userId) {
-            return $http.post("../getDebts", userId)
+        var getDebts = function(budgIdSeq) {
+            return $http.post("../getDebts", budgIdSeq)
                 .then(function(response) {
                     return response.data;
                 });
         };
-        var getExpenses = function(userId) {
-            return $http.post("../getExpenses", userId)
+        var getExpenses = function(budgIdSeq) {
+            return $http.post("../getExpenses", budgIdSeq)
                 .then(function(response) {
                     return response.data;
                 });

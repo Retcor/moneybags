@@ -6,8 +6,8 @@
     var loginController = function($scope, $http, login, $location, $rootScope) {
 
         var loginSuccess = function(data) {
-            if (data != "") {
-                window.sessionStorage.userId = data.id;
+            if (data != "" && data.userIdSeq) {
+                window.sessionStorage.userIdSeq = data.userIdSeq;
                 window.sessionStorage.userName = data.userName;
                 $location.path("/details");
             } else {
@@ -19,15 +19,20 @@
             toastr.error('Login Failed!', 'Error');
         };
 
+        var createUserSuccess = function(data) {
+            toastr.success('Save Successful!', 'Success');
+        };
+
+        var createUserError = function(data) {
+            toastr.error('Save Error!', 'Error');
+        };
+
         $scope.createUser = function(userName, password) {
             var userObj = {
                 userName: userName,
                 password: password
             };
-            login.createUser(userObj).then(
-                toastr.success('Save Successful!', 'Success'),
-                toastr.error('Save Error!', 'Error')
-            );
+            login.createUser(userObj).then(createUserSuccess, createUserError);
         };
 
         $scope.login = function(userName, password) {

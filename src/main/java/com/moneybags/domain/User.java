@@ -1,35 +1,30 @@
-package com.moneybags.models;
+package com.moneybags.domain;
 
-import javax.persistence.*;
-import java.util.List;
-
-/**
- * Created by dan on 2/18/15.
- */
-@Entity
 public class User {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
-    @Column(name = "user_name")
+    private Long userIdSeq;
     private String userName;
     private String password;
 
-    public long getId() {
-        return id;
+    public Long getUserIdSeq() {
+        return userIdSeq;
     }
-    public void setId(long id) {
-        this.id = id;
+
+    public void setUserIdSeq(Long userIdSeq) {
+        this.userIdSeq = userIdSeq;
     }
+
     public String getUserName() {
         return userName;
     }
+
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
