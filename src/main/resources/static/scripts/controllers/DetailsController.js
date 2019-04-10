@@ -13,7 +13,7 @@
         var getDebtsError = function(data) {
             $scope.Message = "Getting debts failed!";
         };
-        details.getDebts(window.sessionStorage.userId).then(getDebtsSuccess,getDebtsError);
+        details.getDebts(window.sessionStorage.userIdSeq).then(getDebtsSuccess,getDebtsError);
         $scope.userExpenses = details.getExpenses(window.sessionStorage.userIdSeq);
 
         var saveSuccess = function(data) {

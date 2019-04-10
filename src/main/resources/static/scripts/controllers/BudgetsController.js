@@ -3,37 +3,41 @@
  */
 (function(){
     var app = angular.module("moneybags");
-    var budgetsController = function($scope, details) {
+    var budgetsController = function($scope, budgets, $location) {
         $scope.userIdSeq = window.sessionStorage.userIdSeq;
         $scope.userName = window.sessionStorage.userName;
 
-        var getDebtsSuccess = function(data) {
-            $scope.userDebts = data;
+        var getBudgetsSuccess = function(data) {
+            $scope.userBudgets = data;
         };
-        var getDebtsError = function(data) {
-            $scope.Message = "Getting debts failed!";
+        var getBudgetsError = function(data) {
+            $scope.Message = "Getting budgets failed!";
         };
-        details.getDebts(window.sessionStorage.userId).then(getDebtsSuccess,getDebtsError);
-        $scope.userExpenses = details.getExpenses(window.sessionStorage.userIdSeq);
+        budgets.getBudgets(window.sessionStorage.userIdSeq).then(getBudgetsSuccess,getBudgetsError);
 
         var saveSuccess = function(data) {
             $scope.Message = "Save Success!";
+            $scope.userBudgets.push(data);
+            $scope.descr = "";
         };
 
-        $scope.saveDebt = function (description, payAmount, dueDate, rate, totalLeft) {
-            var debtObj = {
+        var saveError = function(data) {
+            $scope.Message = "Save Error!";
+        };
+
+        $scope.saveBudget = function (descr) {
+            var budgetObj = {
                 userIdSeq: window.sessionStorage.userIdSeq,
-                description: description,
-                payAmount: payAmount,
-                dueDate: dueDate,
-                rate: rate,
-                totalLeft: totalLeft
+                descr: descr
             };
-            details.saveDebt(debtObj).then(saveSuccess,saveError);
+            budgets.saveBudget(budgetObj).then(saveSuccess,saveError);
         };
-        $scope.saveExpense = function () {
 
-        }
+        $scope.logout = function () {
+            window.sessionStorage.userIdSeq = null;
+            window.sessionStorage.userName = null;
+            $location.path("/");
+        };
     };
     app.controller('BudgetsController', budgetsController);
 }());

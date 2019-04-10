@@ -9,7 +9,7 @@
             if (data != "" && data.userIdSeq) {
                 window.sessionStorage.userIdSeq = data.userIdSeq;
                 window.sessionStorage.userName = data.userName;
-                $location.path("/details");
+                $location.path("/budgets");
             } else {
                 toastr.info('No User Found.');
             }

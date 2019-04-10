@@ -1,6 +1,8 @@
 package com.moneybags.jpa.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by dan on 2/18/15.
@@ -13,6 +15,8 @@ public class Users {// extends BasePersistenceJpa {
     private Long userIdSeq;
     private String userName;
     private String password;
+
+    private Set<Budgets> budgets = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -41,5 +45,14 @@ public class Users {// extends BasePersistenceJpa {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
+    public Set<Budgets> getBudgets() {
+        return budgets;
+    }
+
+    public void setBudgets(Set<Budgets> budgets) {
+        this.budgets = budgets;
     }
 }

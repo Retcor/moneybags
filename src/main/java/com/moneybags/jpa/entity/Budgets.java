@@ -14,13 +14,14 @@ public class Budgets {// extends BasePersistenceJpa {
 
     private Long budgIdSeq;
     private String descr;
+    private Users users;
 
     private Set<Expenses> expenses = new HashSet<>();
     private Set<Debts> debts = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "BUXF_ID_SEQ", nullable = false, precision = 11, scale = 0)
+    @Column(name = "BUDG_ID_SEQ", nullable = false, precision = 11, scale = 0)
     public Long getBudgIdSeq() {
         return budgIdSeq;
     }
@@ -36,6 +37,16 @@ public class Budgets {// extends BasePersistenceJpa {
 
     public void setDescr(String descr) {
         this.descr = descr;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID_SEQ")
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "budgets")
